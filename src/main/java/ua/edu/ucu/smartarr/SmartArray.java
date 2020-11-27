@@ -10,5 +10,4 @@ public interface SmartArray {
 
     int size(); // return SmartArray size
 
-    Object[] getArray();
 }

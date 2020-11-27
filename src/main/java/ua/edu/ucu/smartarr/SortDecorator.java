@@ -16,8 +16,9 @@ public class SortDecorator extends SmartArrayDecorator {
 
     public static SmartArray sort(SmartArray smartArray,
                                   MyComparator myComparator) {
-        Arrays.sort(smartArray.getArray(), myComparator);
-        return new BaseArray(smartArray.getArray());
+        Object[] newArray = smartArray.toArray();
+        Arrays.sort(newArray, myComparator);
+        return new BaseArray(newArray);
     }
 
     @Override
@@ -33,11 +34,6 @@ public class SortDecorator extends SmartArrayDecorator {
     @Override
     public int size() {
         return super.smartArray.size();
-    }
-
-    @Override
-    public Object[] getArray() {
-        return super.smartArray.getArray();
     }
 
 }

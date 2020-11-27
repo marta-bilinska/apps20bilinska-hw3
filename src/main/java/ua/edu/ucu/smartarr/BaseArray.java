@@ -1,8 +1,6 @@
 package ua.edu.ucu.smartarr;
 
 
-import java.util.function.Consumer;
-
 // Base array for decorators
 public class BaseArray implements SmartArray {
     private Object[] array;
@@ -28,11 +26,6 @@ public class BaseArray implements SmartArray {
     @Override
     public int size() {
         return size;
-    }
-
-    @Override
-    public Object[] getArray() {
-        return array;
     }
 
 

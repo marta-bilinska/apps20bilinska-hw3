@@ -11,14 +11,14 @@ public class FilterDecorator extends SmartArrayDecorator {
     private final MyPredicate predicate;
 
     public FilterDecorator(SmartArray smartArray, MyPredicate myPredicate) {
-        super(CreateFiltered(smartArray, myPredicate));
+        super(createFiltered(smartArray, myPredicate));
         predicate = myPredicate;
     }
 
-    public static SmartArray CreateFiltered(SmartArray smartArray,
+    public static SmartArray createFiltered(SmartArray smartArray,
                                             MyPredicate myPredicate) {
         ArrayList<Object> resultArray =
-                new ArrayList<>(Arrays.asList(smartArray.getArray()));
+                new ArrayList<>(Arrays.asList(smartArray.toArray()));
         resultArray.removeIf(item -> !myPredicate.test(item));
         return new BaseArray(resultArray.toArray());
     }
@@ -38,8 +38,4 @@ public class FilterDecorator extends SmartArrayDecorator {
         return super.smartArray.size();
     }
 
-    @Override
-    public Object[] getArray() {
-        return super.smartArray.getArray();
-    }
 }
