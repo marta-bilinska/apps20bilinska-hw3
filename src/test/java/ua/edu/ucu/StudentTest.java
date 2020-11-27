@@ -15,11 +15,11 @@ public class StudentTest {
 
     @Test
     public void testEquals() {
-        assertNotEquals(null, studentOne);
-        assertNotEquals(studentTwo, studentThree);
-        assertNotEquals(studentFour, studentTwo);
-        assertNotEquals(studentFour, studentFive);
-        assertNotEquals(studentFour, studentTwo);
+        assertNotEquals(studentOne, null);
+        assertNotEquals(studentOne, studentThree);
+        assertNotEquals(studentOne, studentFour);
+        assertNotEquals(studentOne, studentFive);
+        assertNotEquals(studentOne, studentTwo);
         assertEquals(studentOne,studentSix);
 
     }
