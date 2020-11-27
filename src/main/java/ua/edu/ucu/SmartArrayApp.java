@@ -62,7 +62,7 @@ public class SmartArrayApp {
             }
         };
         MyPredicate gpaPredicate = new MyPredicate() {
-            final double MINIMUM = 4.0;
+            private final static double MINIMUM = 4.0;
 
             @Override
             public boolean test(Object t) {

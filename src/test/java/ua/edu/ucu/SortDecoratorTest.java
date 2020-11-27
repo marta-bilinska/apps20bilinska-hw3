@@ -18,6 +18,13 @@ public class SortDecoratorTest {
             return "Integer comparator";
         }
     };
+    MyComparator comparatorTwo = new MyComparator() {
+        @Override
+        public int compare(Object o1, Object o2) {
+            return ((Integer) o1) - ((Integer) o2);
+        }
+
+    };
     SmartArray ba = new BaseArray(new Integer[]{1, 2, 3});
 
     @Test
@@ -33,6 +40,13 @@ public class SortDecoratorTest {
         SmartArray decorated = new SortDecorator(ba, comparator);
         String expected = decorated.operationDescription();
         assert (expected.equals("Sorting the elements with Integer comparator"));
+    }
+
+    @Test
+    public void testStringEmpty() {
+        SmartArray decorated = new SortDecorator(ba, comparatorTwo);
+        String expected = decorated.operationDescription();
+        assert (expected.equals("Sorting the elements with "));
     }
 
 }

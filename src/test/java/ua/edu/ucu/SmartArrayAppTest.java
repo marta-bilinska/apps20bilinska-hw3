@@ -1,6 +1,7 @@
 package ua.edu.ucu;
 
 import org.junit.Test;
+import ua.edu.ucu.smartarr.SmartArray;
 
 import static org.junit.Assert.*;
 
@@ -55,5 +56,13 @@ public class SmartArrayAppTest {
         String[] expectedStudentNames = {"Borek Tomasz", "Kranga Antons", "Krangal Antonsio", "Sutter Burr"};
 
         assertArrayEquals(expectedStudentNames, studentNames);
+    }
+
+    @Test
+    public void testConstructor() {
+        SmartArrayApp app = new SmartArrayApp();
+        Student s1 = new Student("Ivar", "Grimstad", 3.9, 2);
+        Student s2 = new Student("Ivar", "Zeidman", 4.5, 1);
+        assertNotEquals(s1, s2);
     }
 }

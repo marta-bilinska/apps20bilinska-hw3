@@ -29,6 +29,12 @@ public class StudentTest {
     }
 
     @Test
+    public void testEquals(){
+
+        assertFalse(studentOne.equals(null));
+    }
+
+    @Test
     public void testEqualDifferentClass(){
         assertFalse(studentOne.equals(new String()));
     }

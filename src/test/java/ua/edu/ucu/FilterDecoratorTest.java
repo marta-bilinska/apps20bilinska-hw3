@@ -20,6 +20,13 @@ public class FilterDecoratorTest {
             return "Filter all negatives";
         }
     };
+    MyPredicate predicateTwo = new MyPredicate() {
+        @Override
+        public boolean test(Object t) {
+            return ((Integer) t) > 0;
+        }
+
+    };
 
     SmartArray ba = new BaseArray(new Integer[]{1, 2, 3});
 
@@ -36,6 +43,13 @@ public class FilterDecoratorTest {
         SmartArray decorated = new FilterDecorator(ba, predicate);
         String expected = decorated.operationDescription();
         assert (expected.equals("Filtering the array by Filter all negatives"));
+    }
+
+    @Test
+    public void testStringEmpty() {
+        SmartArray decorated = new FilterDecorator(ba, predicateTwo);
+        String expected = decorated.operationDescription();
+        assert (expected.equals("Filtering the array by "));
     }
 
 }
