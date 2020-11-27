@@ -21,8 +21,8 @@ public class SmartArrayApp {
 
         MyComparator cmp = new MyComparator() {
             @Override
-            public int compare(Object o1, Object o2) {
-                return ((Integer) o1) - ((Integer) o2);
+            public int compare(Object objectOne, Object objectTwo) {
+                return ((Integer) objectOne) - ((Integer) objectTwo);
             }
         };
 
@@ -62,25 +62,23 @@ public class SmartArrayApp {
             }
         };
         MyPredicate gpaPredicate = new MyPredicate() {
+            final double MINIMUM = 4.0;
+
             @Override
             public boolean test(Object t) {
-                return (((Student) t).getGPA() >= 4.0);
+                return (((Student) t).getGPA() >= MINIMUM);
             }
         };
         MyComparator surnameComparator = new MyComparator() {
-            @Override
-            public int compare(Object o1, Object o2) {
-                return compare(((Student) o1).getSurname(),
-                        ((Student) o2).getSurname());
-            }
-
-            public int compare(String s1, String s2) {
-                int lengthFirst = s1.length();
-                int lengthSecond = s2.length();
+            public int compare(Object objectFirst, Object objectSecond) {
+                String studentOne = ((Student) objectFirst).getSurname();
+                String studentTwo = ((Student) objectSecond).getSurname();
+                int lengthFirst = studentOne.length();
+                int lengthSecond = studentTwo.length();
                 int minimumLength = Math.min(lengthFirst, lengthSecond);
                 for (int i = 0; i < minimumLength; i++) {
-                    int charFirst = s1.charAt(i);
-                    int charSecond = s2.charAt(i);
+                    int charFirst = studentOne.charAt(i);
+                    int charSecond = studentTwo.charAt(i);
                     if (charFirst == charSecond) {
                         continue;
                     }

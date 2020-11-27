@@ -15,4 +15,8 @@ public interface MyComparator extends Comparator<Object> {
     @Override
     int compare(Object oOne, Object oTwo);
 
+    default String description() {
+        return "";
+    }
+
 }

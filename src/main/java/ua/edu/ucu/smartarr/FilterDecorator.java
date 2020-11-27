@@ -30,7 +30,7 @@ public class FilterDecorator extends SmartArrayDecorator {
 
     @Override
     public String operationDescription() {
-        return "Filtering the array... ";
+        return "Filtering the array by " + getPredicateDescription();
     }
 
     @Override
@@ -38,4 +38,7 @@ public class FilterDecorator extends SmartArrayDecorator {
         return super.smartArray.size();
     }
 
+    public String getPredicateDescription() {
+        return predicate.description();
+    }
 }

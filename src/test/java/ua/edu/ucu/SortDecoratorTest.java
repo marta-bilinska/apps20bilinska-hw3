@@ -12,6 +12,11 @@ public class SortDecoratorTest {
         public int compare(Object o1, Object o2) {
             return ((Integer) o1) - ((Integer) o2);
         }
+
+        @Override
+        public String description() {
+            return "Integer comparator";
+        }
     };
     SmartArray ba = new BaseArray(new Integer[]{1, 2, 3});
 
@@ -27,7 +32,7 @@ public class SortDecoratorTest {
     public void testString() {
         SmartArray decorated = new SortDecorator(ba, comparator);
         String expected = decorated.operationDescription();
-        assert (expected.equals("Sorting the elements... "));
+        assert (expected.equals("Sorting the elements with Integer comparator"));
     }
 
 }

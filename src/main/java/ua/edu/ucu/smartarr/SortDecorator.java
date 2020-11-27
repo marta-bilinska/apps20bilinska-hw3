@@ -28,7 +28,7 @@ public class SortDecorator extends SmartArrayDecorator {
 
     @Override
     public String operationDescription() {
-        return "Sorting the elements... ";
+        return "Sorting the elements with " + getComparatorDescription();
     }
 
     @Override
@@ -36,4 +36,7 @@ public class SortDecorator extends SmartArrayDecorator {
         return super.smartArray.size();
     }
 
+    public String getComparatorDescription() {
+        return comparator.description();
+    }
 }

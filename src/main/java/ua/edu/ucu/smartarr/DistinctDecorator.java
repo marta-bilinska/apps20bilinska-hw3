@@ -39,7 +39,7 @@ public class DistinctDecorator extends SmartArrayDecorator {
 
     @Override
     public String operationDescription() {
-        return "Removing repeating entries. ";
+        return "Removing repeating entries... ";
     }
 
     @Override

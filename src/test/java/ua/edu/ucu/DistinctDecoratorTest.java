@@ -1,23 +1,17 @@
 package ua.edu.ucu;
 
 import org.junit.Test;
-
 import ua.edu.ucu.functions.MyPredicate;
 import ua.edu.ucu.smartarr.BaseArray;
-import ua.edu.ucu.smartarr.FilterDecorator;
+import ua.edu.ucu.smartarr.DistinctDecorator;
 import ua.edu.ucu.smartarr.SmartArray;
 
 
-public class FilterDecoratorTest {
+public class DistinctDecoratorTest {
     MyPredicate predicate = new MyPredicate() {
         @Override
         public boolean test(Object t) {
             return ((Integer) t) > 0;
-        }
-
-        @Override
-        public String description() {
-            return "Filter all negatives";
         }
     };
 
@@ -25,7 +19,7 @@ public class FilterDecoratorTest {
 
     @Test
     public void testSize() {
-        SmartArray decorated = new FilterDecorator(ba, predicate);
+        SmartArray decorated = new DistinctDecorator(ba);
         int expected = 3;
         int actual = decorated.size();
         assert (expected == actual);
@@ -33,9 +27,9 @@ public class FilterDecoratorTest {
 
     @Test
     public void testString() {
-        SmartArray decorated = new FilterDecorator(ba, predicate);
+        SmartArray decorated = new DistinctDecorator(ba);
         String expected = decorated.operationDescription();
-        assert (expected.equals("Filtering the array by Filter all negatives"));
+        assert (expected.equals("Removing repeating entries... "));
     }
 
 }

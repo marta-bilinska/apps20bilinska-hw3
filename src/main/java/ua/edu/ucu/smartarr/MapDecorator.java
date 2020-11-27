@@ -28,7 +28,7 @@ public class MapDecorator extends SmartArrayDecorator {
 
     @Override
     public String operationDescription() {
-        return "Mapping array to a function... ";
+        return "Mapping array to a function " + getFunctionDescription();
     }
 
     @Override
@@ -36,4 +36,7 @@ public class MapDecorator extends SmartArrayDecorator {
         return super.smartArray.size();
     }
 
+    public String getFunctionDescription() {
+        return function.description();
+    }
 }

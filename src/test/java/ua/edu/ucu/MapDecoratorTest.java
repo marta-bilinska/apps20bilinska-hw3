@@ -13,6 +13,11 @@ public class MapDecoratorTest {
         public Object apply(Object t) {
             return 2 * ((Integer) t);
         }
+
+        @Override
+        public String description() {
+            return "Function that multiplies by 2";
+        }
     };
     SmartArray ba = new BaseArray(new Integer[]{1, 2, 3});
 
@@ -28,7 +33,7 @@ public class MapDecoratorTest {
     public void testString() {
         SmartArray decorated = new MapDecorator(ba, function);
         String expected = decorated.operationDescription();
-        assert (expected.equals("Mapping array to a function... "));
+        assert (expected.equals("Mapping array to a function Function that multiplies by 2"));
     }
 
 }
