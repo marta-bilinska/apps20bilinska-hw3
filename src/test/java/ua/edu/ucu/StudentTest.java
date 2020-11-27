@@ -20,6 +20,8 @@ public class StudentTest {
         assertNotEquals(studentFour, studentTwo);
         assertNotEquals(studentFour, studentFive);
         assertNotEquals(studentFour, studentTwo);
+        assertEquals(studentOne,studentSix);
+
     }
 
     @Test
